@@ -1,9 +1,9 @@
-
+import 'dotenv/config'
 import { createResponse, createTxtAnswer, startUdpServer } from "denamed"
 import {GoogleGenerativeAI} from "@google/generative-ai"
-const GEMINI_API_KEY="AIzaSyCAudRt-GVQjLvNsywGHBsb7yrShUmZFtA";
 
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+;
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-8b" });
 startUdpServer(
    async(query) => {
